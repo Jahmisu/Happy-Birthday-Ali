@@ -1,0 +1,515 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>I'll Always Love You, My Ali 💜</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Quicksand:wght@300;400;500;600&display=swap");
+
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        min-height: 100vh;
+        background: linear-gradient(
+          135deg,
+          #ffd1dc 0%,
+          #e6e6fa 25%,
+          #ffefd5 50%,
+          #e6e6fa 75%,
+          #ffd1dc 100%
+        );
+        background-size: 400% 400%;
+        animation: gradientFlow 15s ease infinite;
+        font-family: "Quicksand", sans-serif;
+        overflow-x: hidden;
+        color: #4a4a4a;
+      }
+
+      @keyframes gradientFlow {
+        0% {
+          background-position: 0% 50%;
+        }
+
+        50% {
+          background-position: 100% 50%;
+        }
+
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+      /* Enhanced Sparkle Effect */
+      .magic-sparkles {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 1;
+      }
+
+      .sparkle {
+        position: absolute;
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background-color: white;
+        animation: twinkle var(--duration, 4s) ease-in-out infinite;
+        opacity: 0;
+      }
+
+      @keyframes twinkle {
+        0%,
+        100% {
+          opacity: 0;
+          transform: scale(0.5);
+        }
+
+        50% {
+          opacity: 0.8;
+          transform: scale(1);
+        }
+      }
+
+      /* Generate 50 sparkles with different positions and animations */
+      .magic-sparkles::before,
+      .magic-sparkles::after {
+        content: "";
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        background-image: radial-gradient(circle, white 1px, transparent 1px);
+        background-size: 50px 50px;
+        animation: sparkleLayer 8s linear infinite;
+        opacity: 0.5;
+      }
+
+      .magic-sparkles::after {
+        animation-delay: -4s;
+        transform: rotate(45deg);
+      }
+
+      @keyframes sparkleLayer {
+        0% {
+          transform: translateY(0);
+        }
+
+        100% {
+          transform: translateY(-50px);
+        }
+      }
+
+      /* Floating Hearts */
+      .floating-hearts {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      .heart {
+        position: absolute;
+        font-size: 1.5rem;
+        color: rgba(255, 105, 180, 0.6);
+        animation: floatHeart var(--float-duration, 6s) ease-in-out infinite;
+        animation-delay: var(--delay, 0s);
+      }
+
+      @keyframes floatHeart {
+        0% {
+          transform: translate(0, 100vh) rotate(0deg);
+        }
+
+        100% {
+          transform: translate(var(--translate-x, 0), -100vh) rotate(360deg);
+        }
+      }
+
+      /* Welcome Section */
+      .welcome {
+        text-align: center;
+        padding: 4rem 2rem;
+        position: relative;
+        z-index: 3;
+      }
+
+      .welcome h1 {
+        font-family: "Dancing Script", cursive;
+        font-size: 4rem;
+        color: #ff69b4;
+        text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        animation: fadeInScale 2s ease;
+      }
+
+      .welcome p {
+        font-size: 1.2rem;
+        max-width: 600px;
+        margin: 1.5rem auto;
+        line-height: 1.6;
+        animation: fadeIn 2s ease 0.5s both;
+      }
+
+      /* Enhanced Memory Cards */
+      .memory-container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 2rem;
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 2rem;
+        z-index: 3;
+        position: relative;
+      }
+
+      .memory-card {
+        background: rgba(255, 255, 255, 0.9);
+        border-radius: 20px;
+        padding: 1.5rem;
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        position: relative;
+        overflow: hidden;
+      }
+
+      .memory-card:hover {
+        transform: translateY(-10px) scale(1.02);
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+      }
+
+      .memory-card::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(
+          45deg,
+          transparent,
+          rgba(255, 255, 255, 0.4),
+          transparent
+        );
+        transform: translateX(-100%);
+        transition: 0.5s;
+      }
+
+      .memory-card:hover::before {
+        transform: translateX(100%);
+      }
+
+      .memory-img {
+        width: 100%;
+        height: 250px;
+        object-fit: cover;
+        border-radius: 15px;
+        margin-bottom: 1rem;
+        transition: transform 0.5s ease;
+      }
+
+      .memory-card:hover .memory-img {
+        transform: scale(1.05);
+      }
+
+      .memory-date {
+        font-family: "Dancing Script", cursive;
+        color: #ff69b4;
+        font-size: 1.3rem;
+        margin-bottom: 0.5rem;
+      }
+
+      .memory-caption {
+        font-size: 1rem;
+        line-height: 1.5;
+        color: #666;
+      }
+
+      /* Final Message Section */
+      .final-message {
+        text-align: center;
+        padding: 4rem 2rem;
+        background: rgba(255, 255, 255, 0.3);
+        backdrop-filter: blur(10px);
+        margin-top: 3rem;
+        position: relative;
+        z-index: 3;
+      }
+
+      .final-message h2 {
+        font-family: "Dancing Script", cursive;
+        font-size: 3rem;
+        color: #ff69b4;
+        margin-bottom: 2rem;
+        animation: heartbeat 2s infinite;
+      }
+
+      @keyframes heartbeat {
+        0%,
+        100% {
+          transform: scale(1);
+        }
+
+        50% {
+          transform: scale(1.1);
+        }
+      }
+
+      .final-message p {
+        font-size: 1.2rem;
+        max-width: 800px;
+        margin: 0 auto 2rem;
+        line-height: 1.8;
+      }
+
+      .goodbye-btn {
+        display: inline-block;
+        padding: 1rem 2rem;
+        font-size: 1.2rem;
+        background: linear-gradient(45deg, #ff69b4, #da70d6);
+        color: white;
+        border: none;
+        border-radius: 50px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        box-shadow: 0 5px 15px rgba(255, 105, 180, 0.4);
+        animation: float 3s infinite ease-in-out;
+      }
+
+      .goodbye-btn:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(255, 105, 180, 0.6);
+      }
+
+      @keyframes float {
+        0%,
+        100% {
+          transform: translateY(0);
+        }
+
+        50% {
+          transform: translateY(-10px);
+        }
+      }
+
+      /* Animations */
+      @keyframes fadeInScale {
+        0% {
+          opacity: 0;
+          transform: scale(0.8);
+        }
+
+        100% {
+          opacity: 1;
+          transform: scale(1);
+        }
+      }
+
+      @keyframes fadeIn {
+        0% {
+          opacity: 0;
+        }
+
+        100% {
+          opacity: 1;
+        }
+      }
+
+      /* Generate Hearts */
+      .js-generate-hearts {
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 2;
+      }
+
+      /* Custom Scrollbar */
+      ::-webkit-scrollbar {
+        width: 12px;
+      }
+
+      ::-webkit-scrollbar-track {
+        background: rgba(255, 255, 255, 0.4);
+      }
+
+      ::-webkit-scrollbar-thumb {
+        background: linear-gradient(45deg, #ff69b4, #da70d6);
+        border-radius: 6px;
+      }
+
+      /* Responsive Design */
+      @media (max-width: 768px) {
+        .welcome h1 {
+          font-size: 3rem;
+        }
+
+        .memory-container {
+          grid-template-columns: 1fr;
+        }
+
+        .final-message h2 {
+          font-size: 2.5rem;
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <div class="magic-sparkles"></div>
+    <div class="floating-hearts">
+      <!-- Hearts will be generated via CSS -->
+      <div
+        class="heart"
+        style="--float-duration: 6s; --delay: 0s; --translate-x: 20px"
+      >
+        💜
+      </div>
+      <div
+        class="heart"
+        style="--float-duration: 8s; --delay: 1s; --translate-x: -30px"
+      >
+        💖
+      </div>
+      <div
+        class="heart"
+        style="--float-duration: 7s; --delay: 2s; --translate-x: 40px"
+      >
+        💗
+      </div>
+      <div
+        class="heart"
+        style="--float-duration: 9s; --delay: 3s; --translate-x: -20px"
+      >
+        💓
+      </div>
+      <div
+        class="heart"
+        style="--float-duration: 5s; --delay: 4s; --translate-x: 30px"
+      >
+        💕
+      </div>
+    </div>
+
+    <section class="welcome">
+      <h1>My Appreciation and Love for You, My Ali</h1>
+      <p>
+        Every moment that I spend and will spend with you would be the greatest
+        moments in my life ...
+      </p>
+    </section>
+
+    <div class="memory-container">
+      <div class="memory-card">
+        <img src="./d1.jpg" alt="First Date" class="memory-img" />
+        <div class="memory-date">Your Smile Says It All</div>
+        <div class="memory-caption">
+          My love, Your smile feels like something God took extra time creating
+          — soft enough to heal hearts, bright enough to quiet every darkness.
+          It carries a warmth that no sunrise could imitate, and a sweetness
+          that makes even silence feel beautiful. When you smile, the world
+          becomes gentler. The air feels lighter, my thoughts grow calmer, and
+          somehow every worry loses its weight for a moment. I swear your smile
+          was made with pieces of heaven in it — the kind of beauty that doesn’t
+          only shine outward, but reaches directly into the soul. Not perfect
+          because it is flawless, but perfect because it is yours. And every
+          time you smile at me, it feels like God reminding me that the most
+          beautiful things in life are created softly, lovingly, and with
+          meaning beyond words. 💜
+        </div>
+      </div>
+      <div class="memory-card">
+        <img src="./d2.jpg" alt="Beach Day" class="memory-img" />
+        <div class="memory-date">Virtual Tulips for You</div>
+        <div class="memory-caption">
+          My love, You are my field of purple tulips — rare, soft, and
+          breathtaking in the quietest way. Loving you feels like standing in a
+          garden at dusk, where every petal glows with warmth and peace. Your
+          presence colors my world the way purple tulips color the earth — with
+          elegance, tenderness, and a kind of beauty that never asks for
+          attention, yet steals every heartbeat anyway. If I could give you
+          anything, I would give you endless springs filled with purple tulips,
+          so every flower could say what my lips never fully can: that you are
+          loved gently, deeply, and endlessly. Every tulip would carry a piece
+          of my heart in its petals, swaying softly just to remind you that no
+          matter where life takes us, my love will always bloom toward you. 💜
+        </div>
+      </div>
+      <div class="memory-card">
+        <img src="./d3.jpg" alt="Movie Night" class="memory-img" />
+        <div class="memory-date">Your Pretty Soul</div>
+        <div class="memory-caption">
+          My love, Your soul feels like the kind of thing heaven whispers about
+          — gentle, pure, and endlessly beautiful in ways the eyes could never
+          fully explain. It’s not only the way you look, but the way you exist
+          that makes me love you more every day. I love your personality because
+          it carries warmth into every place you enter. The way you care, the
+          way you speak, the way your heart naturally softens the world around
+          you — it all feels so rare, so genuine, so deeply you. Your soul has
+          this quiet magic to it. It makes people feel safe, understood, and
+          loved without you even trying. And somehow, the more I learn about
+          your heart, the more certain I become that loving you is the easiest
+          thing my soul has ever done. Because your beauty is not only in your
+          smile or your eyes — it lives in your kindness, your spirit, your
+          laughter, and the softness of the person God created you to be. And
+          that is the part of you I will always fall in love with the most. 💜
+        </div>
+      </div>
+    </div>
+
+    <section class="final-message">
+      <h2>Thank You for Existing, Mahal kong Ali</h2>
+      <p>
+        The first time we met, I knew God made His move and let all this
+        beautiful things to happen. Nakilala kita sa panahong sobrang dilim at
+        wala ng kulay yung mundo ko. I don't even know how to feel happy again.
+        Alam kong ikaw din, I've met you at your most fragile state and sobrang
+        takot kana magtiwala sa tao. As days had past, I've got to know better
+        about you, nakita ko gaano ka kabuting tao at all out kung magbigay ng
+        love. I even saw and you let me see the soft side part of your
+        personality, Yung Ali na iyakin at madaling madala ng emotions. At dahil
+        doon, mas nahulog ako sa'yo. Gusto kong maramdaman mo paano ma
+        appreciate ang ganda nitong mundo, I want you to think na hindi laging
+        masakit at masama ang mararanasan mo. The moment I said I love you, I
+        mean it. Gusto kita at pipiliin kitang gustohin simula dulo hanggang
+        wakas. I knew if you are reading it might brought you into tears, kaya
+        tahan na. Mas gusto kong laging nakikita at naririnig yung masayang
+        ikaw. Salamat din sa pagbibigay mo ng pagmamahal saakin, sobrang saya ko
+        dahil hindi ko man ineexpect na mamahalin mo ko pero ginawa mo. Distance
+        between the two of us might be too far but I know that God is in the
+        middle of our love to each other na gagawa siya ng paraan para magkasama
+        tayo soonest, and if that happens for sure magiging masaya at nakangiti
+        siyang pinagmamasdan tayong dalawa. I love you mahal, I'll always be
+        here for you. Hinding hindi ako magsasawang mahalin ka. Enjoy this
+        special day of yours. Mwah!
+      </p>
+      <p>
+        You deserve all the love and joy I give and I will give you in this
+        world. I hope you'll love me till forever too. Happiest Birthday, My
+        Mahal
+      </p>
+      <a href="#" class="goodbye-btn">I Love You Till Forever 💝</a>
+    </section>
+    <script>
+      (function () {
+        const audio = document.getElementById("bg-music");
+        if (!audio) return;
+        audio.volume = 0.6;
+        audio.play().catch(() => {});
+        const enableAudio = () => {
+          audio.muted = false;
+          audio.play().catch(() => {});
+          document.removeEventListener("click", enableAudio);
+        };
+        document.addEventListener("click", enableAudio, { once: true });
+      })();
+    </script>
+  </body>
+</html>
